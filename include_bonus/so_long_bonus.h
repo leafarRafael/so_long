@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 14:10:59 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/01/07 11:00:03 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/01/07 17:08:08 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,19 @@
 # ifndef PNG_EXIT
 #  define PNG_EXIT "./image_png/exit.png"
 # endif
+# ifndef PNG_ASTEROID
+#  define PNG_ASTEROID "./image_png/asteroid.png"
+# endif
 
 typedef enum e_type
 {
 	WALL = 0,
 	EXIT,
 	HERO,
-	EMPTY,
 	BACK,
 	COLLECT,
+	COUNT,
+	ASTEROID
 }		t_types;
 
 typedef struct s_valid
@@ -95,8 +99,8 @@ typedef struct s_map
 	int				s_y;
 	int				s_x;
 	mlx_t			*window;
-	mlx_image_t		*img[6];
-	mlx_texture_t	*png[6];
+	mlx_image_t		*img[7];
+	mlx_texture_t	*png[7];
 }				t_map;
 
 typedef struct s_player

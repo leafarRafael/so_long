@@ -1,5 +1,3 @@
-.SILENT:
-
 NAME = libft.a
 
 FILES = libft/src_ctype/ft_isalnum.c libft/src_ctype/ft_isascii.c libft/src_ctype/ft_isprint.c\
