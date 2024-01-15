@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 11:47:49 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/01/06 14:14:29 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/01/15 09:05:53 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,11 @@ void	ft_put_image_to_window(t_main *var)
 		while (var->matrix[y][x] != '\0')
 		{
 			ft_parse_help(var, x, y);
+			if (var->matrix[y][x] == 'E')
+			{
+				var->x_exit = x;
+				var->y_exit = y;
+			}
 			x++;
 		}
 		y++;

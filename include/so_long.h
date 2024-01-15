@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 14:10:59 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/01/07 11:00:03 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/01/15 09:00:47 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,8 @@ typedef struct s_main
 	int			size_image;
 	int			fd;
 	int			read_buffer;
+	int			x_exit;
+	int			y_exit;
 	char		**matrix;
 	char		**v_matrix;
 	char		*archive_ber;

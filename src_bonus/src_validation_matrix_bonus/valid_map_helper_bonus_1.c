@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 09:11:27 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/01/07 17:00:09 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/01/08 10:32:38 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_is_composition(char c)
 {
 	return (c == '1' || c == '0' || c == 'P'
-		|| c == 'C' || c == 'E');
+		|| c == 'C' || c == 'E' || c == 'V');
 }
 
 int	ft_size_y(char **matrix)

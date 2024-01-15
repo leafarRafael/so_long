@@ -6,12 +6,12 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 14:10:59 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/01/07 17:08:08 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/01/15 09:05:38 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 # include <stdio.h>
 # include <unistd.h>
 # include <fcntl.h>
@@ -117,6 +117,13 @@ typedef struct s_main
 	t_itens		*it;
 	int			count_l;
 	int			count_c;
+	int			p_x;
+	int			p_y;
+	int			x_exit;
+	int			y_exit;
+	int			npc_x;
+	int			npc_y;
+	int			move_y;
 	int			size;
 	int			size_image;
 	int			fd;
@@ -148,6 +155,11 @@ void		ft_ber_cpy_to_matrix(t_main *var, int argc, char **argv);
 void		ft_matrix_free(char	**matrix);
 
 /*
+	folder: src_move_npc
+	file:	move_npc.c
+*/
+void		ft_move_npc(t_main *var);
+/*
 	folder: src_hero
 	file:	hero_move.c
 */
@@ -158,6 +170,7 @@ void		ft_move_hero(t_main *var, int up_down, int left_rig, char *png);
 	file:	my_hook.c
 */
 void		ft_my_hooks(mlx_key_data_t keyd, void *param);
+void		ft_my_hook_npc(void	*param);
 
 /*
 	folder: src_image_texture

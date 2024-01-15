@@ -17,6 +17,8 @@ FILES = libft/src_ctype/ft_isalnum.c libft/src_ctype/ft_isascii.c libft/src_ctyp
 		ft_printf/ft_putpointer.c ft_printf/ft_putstr.c ft_printf/ft_putnbr_base.c\
 		ft_printf/ft_strl.c  ft_printf/ft_putchar.c ft_printf/ft_printf.c
 
+NUM_FILES	:= $(words $(FILES))
+
 O_FILE_PATH := /o_file
 OBJS		:= ./objs
 INCLUDES = ./includes
@@ -34,9 +36,11 @@ bonus: $(O_BONUS)
 $(O_BONUS): $(B_FILES)
 
 $(OBJS)/%.o: %.c
-	mkdir -p $(@D)
-	$(CC) -I$(INCLUDES) $(O_FLAGS) $(CFLAGS) $< -o $@
-	ar -rc $(NAME) $@
+	@mkdir -p $(@D)
+	@$(CC) -I$(INCLUDES) $(O_FLAGS) $(CFLAGS) $< -o $@
+	@ar -rc $(NAME) $@
+	@$(eval COUNT := $(shell echo $$(($(COUNT)+1))))
+	@echo "[$(shell echo 	$$(($(COUNT) * 100 / $(NUM_FILES))))%] libft Progress"
 
 clean:
 	rm -Rf $(OBJS)

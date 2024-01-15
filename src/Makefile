@@ -5,6 +5,8 @@ FILES = src_creating_matrix/ber_to_matrix.c src_image_texture/image_texture.c sr
 	src_validation_matrix/valid_map_helper_1.c src_hooks/my_hooks.c src_main_game/main.c src_validation_argument/valid_arg.c\
 	src_validation_matrix/valid_map_helper_2.c
 
+NUM_FILES	:= $(words $(FILES))
+
 O_FILE_PATH := /o_file
 OBJS = ./objs
 INCLUDES = -I /include
@@ -18,9 +20,11 @@ all : $(NAME)
 $(NAME): $(O_FILE)
 
 $(OBJS)/%.o: %.c
-	mkdir -p $(@D)
-	$(CC) $(INCLUDES) $(O_FLAGS) $(CFLAGS) $< -o $@
-	ar -rc $(NAME) $@
+	@mkdir -p $(@D)
+	@$(CC) $(INCLUDES) $(O_FLAGS) $(CFLAGS) $< -o $@
+	@ar -rc $(NAME) $@
+	@$(eval COUNT := $(shell echo $$(($(COUNT)+1))))
+	@echo "[$(shell echo $$(($(COUNT) * 100 / $(NUM_FILES))))%] Progress SRC_SO_LONG"
 
 clean:
 	rm -Rf $(OBJS)

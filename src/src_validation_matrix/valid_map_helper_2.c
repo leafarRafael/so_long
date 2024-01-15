@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 09:57:42 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/01/06 14:14:00 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/01/13 15:27:22 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_flood_fill(char **matrix, t_valid *v)
 {
 	v->y = 0;
 	v->x = 0;
-	ft_ask_for_me(matrix, '0', &v->y, &v->x);
+	ft_ask_for_me(matrix, 'P', &v->y, &v->x);
 	flood_fill_input(matrix, v, v->x, v->y);
 	if (ft_valid_composition(matrix, v, &ft_check_possible) <= 0)
 		return (-1);

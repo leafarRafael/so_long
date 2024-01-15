@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 08:47:49 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/01/06 14:13:48 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/01/15 08:50:47 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,12 @@ static void	ft_check_the_spaces(t_main	*var, char *file_ber)
 
 char	*ft_validate_parameter(t_main *var, int argc, char *argv[])
 {
-	if (ft_valid_argv(argv[1]) == -1)
-		ft_error("Error 22! Waiting for file extension .ber\n", NULL, 1);
 	if (argc <= 1)
-		ft_error("Error 23! You ve passed few arguments\n", NULL, 1);
+		ft_error("Error 22! You ve passed few arguments\n", NULL, 1);
 	if (argc > 2)
-		ft_error("Error 24! You ve passed manyarguments\n", NULL, 1);
+		ft_error("Error 23! You ve passed manyarguments\n", NULL, 1);
+	if (ft_valid_argv(argv[1]) == -1)
+		ft_error("Error 24! Waiting for file extension .ber\n", NULL, 1);
 	ft_check_the_spaces(var, argv[1]);
 	return (argv[1]);
 }

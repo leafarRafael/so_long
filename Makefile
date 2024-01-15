@@ -23,34 +23,43 @@ $(NAME):$(LIBFT)
 
 libft:
 $(LIBFT): $(PATH_MAKE_LIB)/Makefile
-	$(MAKE) -C $(PATH_MAKE_LIB)
+	@$(MAKE) -C $(PATH_MAKE_LIB) --no-print-directory
 
 lib_so_long:
 $(LIB_SO): $(PATH_SO)/Makefile
-	$(MAKE) -C $(PATH_SO)
+	@$(MAKE) -C $(PATH_SO) --no-print-directory
 
 libmlx:
-	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
+	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4 --no-print-directory
 
 $(NAME): $(LIB_SO)
-	$(CC) $(LIB_SO) $(LIBFT) $(LIB_MLX) $(INCLUDE) -o $(NAME)
+	@$(CC) $(LIB_SO) $(LIBFT) $(LIB_MLX) $(INCLUDE) -o $(NAME)
 
 libft_clean:
-	$(MAKE) -C $(PATH_MAKE_LIB) fclean
+	@$(MAKE) -C $(PATH_MAKE_LIB) fclean --no-print-directory
 
 so_long_fclean:
-	$(MAKE) -C $(PATH_SO) fclean
+	@$(MAKE) -C $(PATH_SO) fclean --no-print-directory
 
 so_long_bonus_fclean:
-	$(MAKE) -C $(PATH_SO_BONUS) fclean
+	@$(MAKE) -C $(PATH_SO_BONUS) fclean --no-print-directory
+
+libft_re:
+	@$(MAKE) -C $(PATH_MAKE_LIB) re --no-print-directory
+
+so_long_re:
+	@$(MAKE) -C $(PATH_SO) re --no-print-directory
+
+so_long_bonus_re:
+	@$(MAKE) -C $(PATH_SO_BONUS) re --no-print-directory
 
 clean:
 	@rm -rf $(OBJS)
-	@rm -rf $(LIBMLX)/build
+	@rm -rf $(LIBMLX)/build 
 
 fclean: clean libft_clean so_long_fclean so_long_bonus_fclean
 	@rm -rf $(NAME)
 
-re: clean all
+re: fclean libft_re so_long_re so_long_bonus_re all
 
 .PHONY: all, clean, fclean, re, libmlx
