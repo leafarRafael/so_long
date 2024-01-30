@@ -14,7 +14,7 @@ OBJS = ./objs_bonus
 INCLUDES = -I ../include_bonus
 O_FILE = $(FILES:%.c=$(OBJS)/%.o)
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -Ofast
+CFLAGS = #-Wall -Werror -Wextra -Ofast
 O_FLAGS = -c
 
 all : $(NAME)

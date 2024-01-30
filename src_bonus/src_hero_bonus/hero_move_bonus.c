@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hero_move_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
+/*   By: rbutzke <rbutzke@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 14:22:24 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/01/15 09:29:17 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/01/30 10:49:23 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,11 @@ static void	ft_reduce_line(t_main *var, int x, int y)
 	if (var->matrix[y][x] == 'E' && var->it->collect == 0)
 	{
 		ft_printf("YOU WIN!!!");
+		ft_delete_all_image(var);
+	}
+	if (var->matrix[y][x] == 'V')
+	{
+		ft_printf("YOU LOSE!!!");
 		ft_delete_all_image(var);
 	}
 	var->matrix[var->p->y][var->p->x] = '0';

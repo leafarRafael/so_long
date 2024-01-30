@@ -1,5 +1,5 @@
 NAME			:= so_long
-CFLAGS			:= -Wextra -Wall -Werror
+CFLAGS			:= #-Wextra -Wall -Werror
 CC				:= cc
 LIBMLX			:= ./lib/MLX42
 LIBFT			:= ./lib/lib_get_print/libft.a
@@ -30,6 +30,8 @@ $(LIB_SO): $(PATH_SO)/Makefile
 	@$(MAKE) -C $(PATH_SO) --no-print-directory
 
 libmlx:
+	@git clone https://github.com/codam-coding-college/MLX42.git $(LIBMLX)
+	@sed -i 's/cmake_minimum_required (VERSION 3.18.0)/cmake_minimum_required (VERSION 3.16.3)/' $(LIBMLX)/CMakeLists.txt
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4 --no-print-directory
 
 $(NAME): $(LIB_SO)
@@ -54,8 +56,8 @@ so_long_bonus_re:
 	@$(MAKE) -C $(PATH_SO_BONUS) re --no-print-directory
 
 clean:
+	@rm -Rf $(LIBMLX)
 	@rm -rf $(OBJS)
-	@rm -rf $(LIBMLX)/build 
 
 fclean: clean libft_clean so_long_fclean so_long_bonus_fclean
 	@rm -rf $(NAME)
