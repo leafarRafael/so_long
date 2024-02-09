@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 14:10:59 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/01/15 09:05:38 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/09 11:53:24 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,8 @@ typedef struct s_main
 	char		*archive_ber;
 	char		*temp;
 	char		buffer;
+	int			frame;
+	int			frame_update;
 }				t_main;
 
 /*

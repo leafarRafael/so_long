@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 10:28:46 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/01/07 16:59:43 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/09 11:53:38 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ int	main(int argc, char *argv[])
 	var->s_mlx = ft_init_mlx();
 	var->p = ft_init_player();
 	var->archive_ber = ft_validate_parameter(var, argc, argv);
+	var->frame = 0;
+	var->frame_update = 5;
 	ft_ber_cpy_to_matrix(var, argc, argv);
 	ft_valid_matrix(var, v);
 	ft_matrix_free(var->v_matrix);

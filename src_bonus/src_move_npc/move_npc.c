@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 11:20:52 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/01/15 10:51:28 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/09 11:47:28 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,8 @@ void	ft_move_npc(t_main *var)
 
 static void	ft_chage(t_main *var, int x, int y)
 {
-	mlx_delete_texture(var->s_mlx->png[ASTEROID]);
 	mlx_delete_image(var->s_mlx->window,
 		var->s_mlx->img[ASTEROID]);
-	var->s_mlx->png[ASTEROID] = mlx_load_png(PNG_ASTEROID);
-	if (!var->s_mlx->png[ASTEROID])
-		ft_error("ERROR 5! Load png", var, 3);
 	var->s_mlx->img[ASTEROID] = mlx_texture_to_image(var->s_mlx->window,
 			var->s_mlx->png[ASTEROID]);
 	if (!var->s_mlx->img[ASTEROID])
