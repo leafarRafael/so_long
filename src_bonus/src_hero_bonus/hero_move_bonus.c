@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 14:22:24 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/09 14:31:28 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/09 15:06:38 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void	ft_chage(t_main *var, int x, int y, char *png);
 static void	ft_put_count_window(t_main *var);
 static void	ft_reduce_line(t_main *var, int x, int y);
+static void	ft_message(t_main *var, char *str);
 
 void	ft_move_hero(t_main *var, int up_down, int left_rig, char *png)
 {
@@ -79,10 +80,7 @@ static void	ft_put_count_window(t_main *var)
 static void	ft_reduce_line(t_main *var, int x, int y)
 {
 	if (var->matrix[var->p->y][var->p->x] == 'V')
-	{
-		ft_printf("GAME OVER!!!");
-		ft_delete_all_image(var);
-	}
+		ft_message(var, "GAME OVER!!!");
 	if (var->matrix[y][x] == 'C')
 	{
 		if ((mlx_image_to_window(var->s_mlx->window, var->s_mlx->img[BACK],
@@ -93,15 +91,15 @@ static void	ft_reduce_line(t_main *var, int x, int y)
 	if (var->it->collect == 0)
 		var->matrix[var->y_exit][var->x_exit] = 'E';
 	if (var->matrix[y][x] == 'E' && var->it->collect == 0)
-	{
-		ft_printf("YOU WIN!!!");
-		ft_delete_all_image(var);
-	}
+		ft_message(var, "YOU WIN!!!");
 	if (var->matrix[y][x] == 'V')
-	{
-		ft_printf("YOU LOSE!!!");
-		ft_delete_all_image(var);
-	}
+		ft_message(var, "YOU LOSE!!!");
 	var->matrix[var->p->y][var->p->x] = '0';
 	var->matrix[y][x] = 'P';
+}
+
+static void	ft_message(t_main *var, char *str)
+{
+	ft_printf("%s", str);
+	ft_delete_all_image(var);
 }
