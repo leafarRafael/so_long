@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 11:47:49 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/01/15 09:06:40 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/09 14:39:57 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,11 @@ static void	ft_parse_help(t_main *var, int x, int y)
 					var->s_mlx->img[EXIT], var->p_x, var->p_y)) < 0)
 			ft_error("ERROR 17! Image to window", var, 3);
 	if (var->matrix[y][x] == 'V')
+	{
 		if ((mlx_image_to_window(var->s_mlx->window,
 					var->s_mlx->img[ASTEROID], var->p_x, var->p_y)) < 0)
 			ft_error("ERROR 17.1! Image to window", var, 3);
+	}
 }
 
 void	ft_put_image_to_window(t_main *var)
