@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 14:10:59 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/01/15 09:00:47 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/14 17:06:40 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,48 +21,20 @@
 # include "../lib/lib_get_print/includes/ft_printf.h"
 # include "../lib/lib_get_print/includes/libft.h"
 
-# ifndef WIDTH
-#  define WIDTH 1024
-# endif
-# ifndef HEIGHT
-#  define HEIGHT 512
-# endif
-# ifndef UP
-#  define UP 'W'
-# endif
-# ifndef DOWN
-#  define DOWN 'S'
-# endif
-# ifndef LEFT
-#  define LEFT 'A'
-# endif
-# ifndef RIGHT
-#  define RIGHT 'D'
-# endif
-# ifndef PNG_WALL
-#  define PNG_WALL "./image_png/tijolo.png"
-# endif
-# ifndef PNG_HERO_UP
-#  define PNG_HERO_UP "./image_png/arplaine_up.png"
-# endif
-# ifndef PNG_HERO_DOWN
-#  define PNG_HERO_DOWN "./image_png/arplaine_down.png"
-# endif
-# ifndef PNG_HERO_LEFT
-#  define PNG_HERO_LEFT "./image_png/arplaine_left.png"
-# endif
-# ifndef PNG_HERO_RIGTH
-#  define PNG_HERO_RIGTH "./image_png/arplaine_right.png"
-# endif
-# ifndef  PNG_BACK
-#  define PNG_BACK "./image_png/nigth.png"
-# endif
-# ifndef PNG_COLLECT
-#  define PNG_COLLECT "./image_png/star.png"
-# endif
-# ifndef PNG_EXIT
-#  define PNG_EXIT "./image_png/exit.png"
-# endif
+# define WIDTH 1024
+# define HEIGHT 512
+# define UP 'W'
+# define DOWN 'S'
+# define LEFT 'A'
+# define RIGHT 'D'
+# define PNG_WALL "./image_png/tijolo.png"
+# define PNG_HERO_UP "./image_png/arplaine_up.png"
+# define PNG_HERO_DOWN "./image_png/arplaine_down.png"
+# define PNG_HERO_LEFT "./image_png/arplaine_left.png"
+# define PNG_HERO_RIGTH "./image_png/arplaine_right.png"
+# define PNG_BACK "./image_png/nigth.png"
+# define PNG_COLLECT "./image_png/star.png"
+# define PNG_EXIT "./image_png/exit.png"
 
 typedef enum e_type
 {
@@ -111,6 +83,8 @@ typedef struct s_main
 	t_player	*p;
 	t_map		*s_mlx;
 	t_itens		*it;
+	int			i;
+	int			n;
 	int			count_l;
 	int			count_c;
 	int			size;

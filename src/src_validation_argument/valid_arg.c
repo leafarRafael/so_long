@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 08:47:49 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/01/15 08:50:47 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/14 16:10:16 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,10 @@ static int	ft_valid_argv(char *argv)
 	return (1);
 }
 
-static void	ft_check_the_spaces(t_main	*var, char *file_ber)
+static int	ft_check_the_spaces(t_main	*var, char *file_ber)
 {
-	int	i;
-	int	n;
-
-	i = 0;
-	n = 0;
+	var->i = 0;
+	var->n = 0;
 	var->fd = open(file_ber, O_RDONLY);
 	if (var->fd < 0)
 		ft_error("Error 18! Invalid fd", var, 1);
@@ -48,19 +45,20 @@ static void	ft_check_the_spaces(t_main	*var, char *file_ber)
 	while (var->read_buffer > 0)
 	{
 		var->read_buffer = read(var->fd, &var->buffer, 1);
-		if (i == 0 && var->buffer == '\n')
+		if (var->i == 0 && var->buffer == '\n')
 			ft_error("Error 19! Check the spaces in the .ber file.", var, 1);
 		if (var->read_buffer == 0 && var->buffer == '\n')
 			ft_error("Error 20! Check the spaces in the .ber file.", var, 1);
 		if (var->buffer == '\n')
-			n++;
+			var->n++;
 		else
-			n = 0;
-		if (n > 1)
+			var->n = 0;
+		if (var->n > 1)
 			ft_error("Error 21! Check the spaces in the .ber file.", var, 1);
-		i++;
+		var->i++;
 	}
 	close(var->fd);
+	return (var->i);
 }
 
 char	*ft_validate_parameter(t_main *var, int argc, char *argv[])
@@ -71,6 +69,7 @@ char	*ft_validate_parameter(t_main *var, int argc, char *argv[])
 		ft_error("Error 23! You ve passed manyarguments\n", NULL, 1);
 	if (ft_valid_argv(argv[1]) == -1)
 		ft_error("Error 24! Waiting for file extension .ber\n", NULL, 1);
-	ft_check_the_spaces(var, argv[1]);
+	if (ft_check_the_spaces(var, argv[1]) < 15)
+		ft_error("Error 21! Check the spaces in the .ber file.", var, 1);
 	return (argv[1]);
 }
