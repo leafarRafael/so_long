@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 11:20:52 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/15 15:49:20 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/15 15:56:25 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_move_npc(t_main *var)
 	y = var->npc_y;
 	x = var->npc_x;
 	if (var->matrix[y + var->move_y][x] == '1'
-			|| var->matrix[y + var->move_y][x] == 'C' 
+			|| var->matrix[y + var->move_y][x] == 'C'
 			|| var->matrix[y + var->move_y][x] == 'E')
 		var->move_y = var->move_y * -1;
 	if (var->matrix[y + var->move_y][x] == 'P')
@@ -30,7 +30,8 @@ void	ft_move_npc(t_main *var)
 		ft_printf("GAME OVER!!!\n");
 		ft_delete_all_image(var);
 	}
-	if (var->matrix[y + var->move_y][x] == '1' && var->matrix[y - var->move_y][x] == '1')
+	if (var->matrix[y + var->move_y][x] == '1'
+		&& var->matrix[y - var->move_y][x] == '1')
 		return ;
 	ft_chage(var, x * var->size_image, (y + var->move_y) * var->size_image);
 	var->matrix[y + var->move_y][x] = 'V';
