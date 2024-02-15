@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 11:20:52 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/15 14:16:56 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/15 14:47:40 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ void	ft_move_npc(t_main *var)
 		ft_printf("GAME OVER!!!\n");
 		ft_delete_all_image(var);
 	}
-	if (var->matrix[y + var->move_y][x] == '1' && var->matrix[y - var->move_y][x] == '1')
-		return ;
 	ft_chage(var, x * var->size_image, (y + var->move_y) * var->size_image);
 	var->matrix[var->npc_y][var->npc_x] = '0';
 	var->matrix[y + var->move_y][x] = 'V';
@@ -39,6 +37,17 @@ void	ft_move_npc(t_main *var)
 
 static void	ft_chage(t_main *var, int x, int y)
 {
-	var->s_mlx->img[ASTEROID]->instances[0].x = x;
-	var->s_mlx->img[ASTEROID]->instances[0].y = y;
+	mlx_delete_image(var->s_mlx->window,
+		var->s_mlx->img[ASTEROID]);
+	if (!var->s_mlx->png[ASTEROID])
+		ft_error("ERROR 5! Load png", var, 3);
+	var->s_mlx->img[ASTEROID] = mlx_texture_to_image(var->s_mlx->window,
+			var->s_mlx->png[ASTEROID]);
+	if (!var->s_mlx->img[ASTEROID])
+		ft_error("ERROR 6! Load img", var, 3);
+	mlx_resize_image(var->s_mlx->img[ASTEROID],
+		var->size_image, var->size_image);
+	if ((mlx_image_to_window(var->s_mlx->window,
+				var->s_mlx->img[ASTEROID], x, y)) < 0)
+		ft_error("ERROR 8! Image to window", var, 3);
 }
