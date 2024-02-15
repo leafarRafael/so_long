@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 14:10:59 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/15 10:48:24 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/15 12:51:44 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct s_itens
 	int		hero;
 	int		collect;
 	int		exit;
+	int		v;
 }			t_itens;
 
 typedef struct s_map
