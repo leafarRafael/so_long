@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 17:26:04 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/15 10:44:18 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/15 14:11:37 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_valid_matrix(t_main	*var, t_valid	*v)
 {
 	v->size_x = ft_strlen(var->v_matrix[v->y]);
 	v->size_y = ft_size_y(var->v_matrix);
-	if (ft_valid_itens(var, v, var->v_matrix) != 1)
+	if (ft_valid_itens(var, v, var->v_matrix) <= 0)
 		ft_error("Error 25! check the composition of .ber\n", var, 2);
 	if (ft_valid_composition(var->v_matrix, v, &ft_is_composition) <= 0)
 		ft_error("Error 26! Check the composition of the .ber file\n", var, 2);
