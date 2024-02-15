@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 09:11:27 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/09 14:56:07 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/15 09:44:41 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ int	ft_valid_itens(t_main *var, t_valid *v, char **matrix)
 	var->it->exit = 0;
 	var->it->hero = 0;
 	v->y = 0;
-	while (matrix[++v->y])
+	while (matrix[v->y])
 	{
 		v->x = 0;
-		while (matrix[v->y][++v->x])
+		while (matrix[v->y][v->x])
 		{
 			if (matrix[v->y][v->x] == 'C')
 				var->it->collect++;
@@ -60,7 +60,9 @@ int	ft_valid_itens(t_main *var, t_valid *v, char **matrix)
 				var->it->exit++;
 			if (matrix[v->y][v->x] == 'P')
 				var->it->hero++;
+			v->x++;
 		}
+		v->y++;
 	}
 	if ((var->it->hero < 1 || var->it->hero > 1)
 		|| (var->it->exit < 1 || var->it->exit > 1) || var->it->collect < 1)

@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 11:20:52 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/09 14:42:11 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/15 10:43:12 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_move_npc(t_main *var)
 		var->move_y = var->move_y * -1;
 	if (var->matrix[y + var->move_y][x] == 'P')
 	{
-		ft_printf("GAME OVER!!!");
+		ft_printf("GAME OVER!!!\n");
 		ft_delete_all_image(var);
 	}
 	ft_chage(var, x * var->size_image, (y + var->move_y) * var->size_image);

@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 14:20:56 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/14 11:32:13 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/15 10:38:28 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_my_hooks(mlx_key_data_t keyd, void *param)
 	var = (t_main *) param;
 	if (keyd.key == MLX_KEY_ESCAPE && keyd.action == MLX_PRESS)
 	{
-		ft_printf("You chose well to give up ahahah (evil laugh)!");
+		ft_printf("You chose well to give up ahahah (evil laugh)!\n");
 		ft_delete_all_image(var);
 	}
 	if (keyd.key == MLX_KEY_W && keyd.action == MLX_PRESS)

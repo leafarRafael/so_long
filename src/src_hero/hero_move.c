@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 14:22:24 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/01/15 10:48:21 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/15 10:38:20 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ static void	ft_chage(t_main *var, int x, int y, char *png)
 		var->s_mlx->img[HERO]);
 	var->s_mlx->png[HERO] = mlx_load_png(png);
 	if (!var->s_mlx->png[HERO])
-		ft_error("ERROR 5! Load png", var, 3);
+		ft_error("ERROR 5! Load png\n", var, 3);
 	var->s_mlx->img[HERO] = mlx_texture_to_image(var->s_mlx->window,
 			var->s_mlx->png[HERO]);
 	if (!var->s_mlx->img[HERO])
-		ft_error("ERROR 6! Load img", var, 3);
+		ft_error("ERROR 6! Load img\n", var, 3);
 	mlx_resize_image(var->s_mlx->img[HERO], var->size_image, var->size_image);
 	if ((mlx_image_to_window(var->s_mlx->window,
 				var->s_mlx->img[HERO], x, y)) < 0)
-		ft_error("ERROR 8! Image to window", var, 3);
+		ft_error("ERROR 8! Image to window\n", var, 3);
 	ft_printf("%d\n", var->p->movements);
 }
 
@@ -44,7 +44,7 @@ void	ft_move_hero(t_main *var, int up_down, int left_rig, char *png)
 		{
 			if ((mlx_image_to_window(var->s_mlx->window, var->s_mlx->img[BACK],
 						x * var->size_image, y * var->size_image)) < 0)
-				ft_error("ERROR 9! Image to window", var, 3);
+				ft_error("ERROR 9! Image to window\n", var, 3);
 			var->it->collect--;
 		}
 		if (var->it->collect == 0)

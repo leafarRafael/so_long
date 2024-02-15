@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 14:10:59 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/14 17:09:01 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/15 10:48:24 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include "../lib/lib_get_print/includes/ft_printf.h"
 # include "../lib/lib_get_print/includes/libft.h"
 
-# define WIDTH 1024
-# define HEIGHT 512
+# define WIDTH 2048
+# define HEIGHT 1024
 # define UP 'W'
 # define DOWN 'S'
 # define LEFT 'A'

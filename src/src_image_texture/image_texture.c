@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 11:33:49 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/01/15 08:54:44 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/15 10:38:37 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ void	ft_creat_texture_image(t_main *var, int png, char *type_png)
 	var->size_image = ft_size_image(var);
 	var->s_mlx->png[png] = mlx_load_png(type_png);
 	if (!var->s_mlx->png[png])
-		ft_error("ERROR 10! Load png", var, 3);
+		ft_error("ERROR 10! Load png\n", var, 3);
 	var->s_mlx->img[png] = mlx_texture_to_image(var->s_mlx->window,
 			var->s_mlx->png[png]);
 	if (!var->s_mlx->img[png])
-		ft_error("ERROR 11! Load img", var, 3);
+		ft_error("ERROR 11! Load img\n", var, 3);
 	mlx_resize_image(var->s_mlx->img[png], var->size_image, var->size_image);
 }
 

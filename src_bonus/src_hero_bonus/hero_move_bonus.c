@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 14:22:24 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/02/09 15:06:38 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/15 10:42:31 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,15 @@ static void	ft_chage(t_main *var, int x, int y, char *png)
 		var->s_mlx->img[HERO]);
 	var->s_mlx->png[HERO] = mlx_load_png(png);
 	if (!var->s_mlx->png[HERO])
-		ft_error("ERROR 5! Load png", var, 3);
+		ft_error("ERROR 5! Load png\n", var, 3);
 	var->s_mlx->img[HERO] = mlx_texture_to_image(var->s_mlx->window,
 			var->s_mlx->png[HERO]);
 	if (!var->s_mlx->img[HERO])
-		ft_error("ERROR 6! Load img", var, 3);
+		ft_error("ERROR 6! Load img\n", var, 3);
 	mlx_resize_image(var->s_mlx->img[HERO], var->size_image, var->size_image);
 	if ((mlx_image_to_window(var->s_mlx->window,
 				var->s_mlx->img[HERO], x, y)) < 0)
-		ft_error("ERROR 8! Image to window", var, 3);
+		ft_error("ERROR 8! Image to window\n", var, 3);
 }
 
 static void	ft_put_count_window(t_main *var)
@@ -63,15 +63,15 @@ static void	ft_put_count_window(t_main *var)
 		var->s_mlx->img[COUNT]);
 	var->s_mlx->png[COUNT] = mlx_load_png(PNG_WALL);
 	if (!var->s_mlx->png[COUNT])
-		ft_error("ERROR 5! Load png", var, 3);
+		ft_error("ERROR 5! Load png\n", var, 3);
 	var->s_mlx->img[COUNT] = mlx_texture_to_image(var->s_mlx->window,
 			var->s_mlx->png[COUNT]);
 	if (!var->s_mlx->img[COUNT])
-		ft_error("ERROR 6! Load img", var, 3);
+		ft_error("ERROR 6! Load img\n", var, 3);
 	mlx_resize_image(var->s_mlx->img[COUNT], var->size_image, var->size_image);
 	if ((mlx_image_to_window(var->s_mlx->window,
 				var->s_mlx->img[COUNT], 0, 0)) < 0)
-		ft_error("ERROR 8! Image to window", var, 3);
+		ft_error("ERROR 8! Image to window\n", var, 3);
 	count = ft_itoa(var->p->movements);
 	mlx_put_string(var->s_mlx->window, count, 0, 0);
 	free(count);
@@ -80,20 +80,20 @@ static void	ft_put_count_window(t_main *var)
 static void	ft_reduce_line(t_main *var, int x, int y)
 {
 	if (var->matrix[var->p->y][var->p->x] == 'V')
-		ft_message(var, "GAME OVER!!!");
+		ft_message(var, "GAME OVER!!!\n");
 	if (var->matrix[y][x] == 'C')
 	{
 		if ((mlx_image_to_window(var->s_mlx->window, var->s_mlx->img[BACK],
 					x * var->size_image, y * var->size_image)) < 0)
-			ft_error("ERROR 9! Image to window", var, 3);
+			ft_error("ERROR 9! Image to window\n", var, 3);
 		var->it->collect--;
 	}
 	if (var->it->collect == 0)
 		var->matrix[var->y_exit][var->x_exit] = 'E';
 	if (var->matrix[y][x] == 'E' && var->it->collect == 0)
-		ft_message(var, "YOU WIN!!!");
+		ft_message(var, "YOU WIN!!!\n");
 	if (var->matrix[y][x] == 'V')
-		ft_message(var, "YOU LOSE!!!");
+		ft_message(var, "YOU LOSE!!!\n");
 	var->matrix[var->p->y][var->p->x] = '0';
 	var->matrix[y][x] = 'P';
 }

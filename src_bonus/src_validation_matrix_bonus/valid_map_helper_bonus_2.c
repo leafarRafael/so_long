@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 09:57:42 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/01/13 15:35:15 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/15 10:00:02 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ int	ft_surrounded_by_walls(char	**matrix, t_valid *v)
 		{
 			if (v->y == 0 && matrix[v->y][v->x] != '1')
 				return (-1);
-			if (v->x == v->size_x && matrix[v->y][v->x] != '1')
+			if (v->x == v->size_x -1 && matrix[v->y][v->x] != '1')
 				return (-1);
 			if (v->x == 0 && matrix[v->y][v->x] != '1')
 				return (-1);
-			if (v->y == v->size_y && matrix[v->y][v->x] != '1')
+			if (v->y == v->size_y -1 && matrix[v->y][v->x] != '1')
 				return (-1);
 			v->x++;
 		}

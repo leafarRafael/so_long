@@ -6,7 +6,7 @@
 /*   By: rbutzke <rbutzke@student.42so.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 08:58:08 by rbutzke           #+#    #+#             */
-/*   Updated: 2024/01/10 09:12:30 by rbutzke          ###   ########.fr       */
+/*   Updated: 2024/02/15 10:43:05 by rbutzke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_put_window(t_main *var)
 {
 	var->s_mlx->window = mlx_init(WIDTH, HEIGHT, "SO_LONG", true);
 	if (!var->s_mlx->window)
-		ft_error("ERROR 12! Load img", var, 3);
+		ft_error("ERROR 12! Load img\n", var, 3);
 	var->count_c = ft_strlen(var->matrix[0]);
 	var->count_l = ft_size_y(var->matrix);
 	var->p->x = 0;
